@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="zh-TW">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -80,11 +80,11 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="C">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="C">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="Cooper Yen">
 <meta name="twitter:card" content="summary">
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>C</title>
   
 
 
@@ -133,7 +133,7 @@
 
 <meta name="generator" content="Hexo 6.0.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
 
   
   
@@ -152,7 +152,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">C</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -178,7 +178,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -188,7 +188,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -238,7 +238,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="C">
     </span>
 
     
@@ -321,54 +321,14 @@
 
       
         
-          
-            <h2 id="實際運作邏輯"><a href="#實際運作邏輯" class="headerlink" title="實際運作邏輯"></a>實際運作邏輯</h2><p>套件主要的溝通方式主要會由三個js組成 background、conetent、popup，其餘js數量沒有限制</p>
-<ol>
-<li>background : 長時間的待命，主要負責extension邏輯與功能，只要套件有開啟的狀態就是持續待命，簡單說不論你在哪一個分頁逛哪一個頁面，它都癡癡的等待你喚醒執行交代的工作</li>
-<li>content : 專職跟頁面溝通的腳色，沒有它就無法取得頁面中的資料</li>
-<li>popup : 使用者介面的呈現，可透過 extension API 讀取、操作 content.js</li>
-</ol>
-<br>
-
-<h2 id="第二步：制作幕後主要溝通的頭頭-background-js"><a href="#第二步：制作幕後主要溝通的頭頭-background-js" class="headerlink" title="第二步：制作幕後主要溝通的頭頭 background.js"></a>第二步：制作幕後主要溝通的頭頭 <code>background.js</code></h2><br>
-我們在 background.js 輸入 console.log 確認是否有成功載入
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#x27;Info from background.js&#x27;);</span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/0002/bkackground_test_2.jpg" title="套件載入後我們可以在檢視模式看到來自 background.js 的訊息了"></p>
-<p>在這次設計套件中，主要我希望使用者在點擊套件後，會執行一個新的分頁，並且將之後需要的資料都集中在這個分頁中來操作，所以我們需要點擊以及開啟後的頁面內容，內容我們會寫在popup.html內。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chrome.action.onClicked.addListener((tabs) =&gt; &#123;</span><br><span class="line">  chrome.tabs.create(&#123;</span><br><span class="line">    url: &#x27;popup.html&#x27;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="第三步：使用者頁面-popup-html"><a href="#第三步：使用者頁面-popup-html" class="headerlink" title="第三步：使用者頁面 popup.html"></a>第三步：使用者頁面 <code>popup.html</code></h2><p>我們先把使用者頁面內容製作起來</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-TW&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;popup頁面&lt;/title&gt;</span><br><span class="line">  &lt;script defer src=&quot;./js/popup.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;h1&gt;Popup 抬頭&lt;/h1&gt;</span><br><span class="line">    &lt;button id=&quot;click_btn&quot;&gt;Click&lt;/button&gt;</span><br><span class="line">    &lt;div class=&quot;info&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>刷新一下我們的套件看看有沒有成功</p>
-<p><img src="/img/0002/bkackground_test_3.jpg" title="1. 接著我們直接點刷新"><br><img src="/img/0002/bkackground_test_4.jpg" title="2. 點套件圖式"><br><img src="/img/0002/bkackground_test_5.jpg" title="3. 看到 Popup 抬頭 就代表我們成功開啟套件的內容頁面了"></p>
-<h2 id="第四步：抓目標頁面資訊-content-scripts"><a href="#第四步：抓目標頁面資訊-content-scripts" class="headerlink" title="第四步：抓目標頁面資訊 content_scripts"></a>第四步：抓目標頁面資訊 <code>content_scripts</code></h2><p>先回頭看先前設定的 manifest.json </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;content_scripts&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;matches&quot;: [</span><br><span class="line">      &quot;*://www.google.com/&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;js&quot;: [</span><br><span class="line">      &quot;./js/content.js&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;run_at&quot;: &quot;document_idle&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<ol>
-<li>matches : 符合的網址，可以替換任何想執行的網址</li>
-<li>js : 執行的js檔案，js名稱可以自行取</li>
-<li>run_at : 默認”document_idle”，試情況可更換”document_start” or “document_end”</li>
-</ol>
-<br>
-
-<p>接下來，我們的目標是要抓到 Google 首頁的 Logo， 顯示在我們的使用者頁面頁面內</p>
-<p><img src="/img/0002/bkackground_test_6.jpg"></p>
-<br>
-
-<ol>
-<li><p>在 <code>content_scripts</code> 中可以透過 chrome.runtime.sendMessage 發送資料，希望在網頁完整讀取後就傳送</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//content_scripts 內容</span><br><span class="line"></span><br><span class="line">window.onload = function () &#123;</span><br><span class="line">  //取得Google logo</span><br><span class="line">  const googleLogoUrl = document.querySelector(&#x27;.lnXdpd&#x27;).src;</span><br><span class="line"></span><br><span class="line">  chrome.runtime.sendMessage(&#123;</span><br><span class="line">    url: googleLogoUrl,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 <code>popup.js</code> 中可以透過 chrome.runtime.onMessage.addListener 接收資料，當 content_scripts 所加載的分頁完畢後就會傳入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//popup.js 內容</span><br><span class="line"></span><br><span class="line">const infoContent = document.querySelector(&#x27;.info&#x27;);</span><br><span class="line"></span><br><span class="line">chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) &#123;</span><br><span class="line">  infoContent.insertAdjacentHTML(&#x27;beforebegin&#x27;, `&lt;img src=&quot;$&#123;request.url&#125;&quot;&gt;`);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><img src="/img/0002/result.gif" title="頁面加載後，使用者頁面出現LOGO代表我們成功取得分頁資料"></p>
-<h2 id="資料參考"><a href="#資料參考" class="headerlink" title="資料參考"></a>資料參考</h2><p><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/getstarted/">Getting started : https://developer.chrome.com/docs/extensions/mv3/getstarted/</a></p>
-
-          
+          Google extension 運作關係，先來個簡易取得頁面內容
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/02/17/0002/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -424,7 +384,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="C">
     </span>
 
     
@@ -507,38 +467,14 @@
 
       
         
-          
-            <h2 id="跨出的第一步"><a href="#跨出的第一步" class="headerlink" title="跨出的第一步"></a>跨出的第一步</h2><p>公司是使用shopline電商平台，每當連續假期過完後準備出貨，總是會聽到出貨小幫手們的吶喊，<br>因為…寫不完的郵寄地址阿…除了手痠還是手痠，更是浪費時間(1張寫2分鐘 100張訂單真的會寫死人)。</p>
-<p>而我們其實也有熱感印機的存在，不過都僅用於超商的條碼列印，畢竟人家都直接產生好了麻，不像郵寄訂單只有地址。雖然有幫忙簡單用Execl抓一下內容可以處理掉手痠的問題，但數量多的時候…Ctrl+C &gt; Ctrl+V 小拇指也很酸…</p>
-<br>
-
-<blockquote>
-<p><strong>那有什麼方法是每台電腦都可以做到，每個人都可以簡單使用，又可以實時更新功能並不用一個一個跑過去手動安裝的呢??</strong></p>
-</blockquote>
-<br>
-
-<p>所以在學習JavaScript一段時間後，Google Extensions根本是完全符合我的選項，而第一個套件在工作之餘摸索了好一段時間，人生第一個公開軟件好不容易正式上線了，在還沒忘記之前來好好記錄一下心路歷程</p>
-<p><img src="/img/0001/google_extensions.jpg" title="功能上我們套件所需要的檔案"></p>
-<br>
-
-
-<h2 id="第一步：制作擴充功能的安裝檔-manifest-json"><a href="#第一步：制作擴充功能的安裝檔-manifest-json" class="headerlink" title="第一步：制作擴充功能的安裝檔 manifest.json"></a>第一步：制作擴充功能的安裝檔 <code>manifest.json</code></h2><p>每個套件都會擁一個 <a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/getstarted/#manifest">manifest</a>，主要提供套件內容、版本、說明、權限等重要資訊，我們可以簡單說就是告訴Google這個extensions要做什麼。</p>
-<h3 id="官方提供起手式"><a href="#官方提供起手式" class="headerlink" title="官方提供起手式"></a>官方提供起手式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;Getting Started Example&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;Build an Extension!&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0&quot;,</span><br><span class="line">  &quot;manifest_version&quot;: 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="照著修改一下"><a href="#照著修改一下" class="headerlink" title="照著修改一下"></a>照著修改一下</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;簡單測試&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;套件的說明&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0&quot;,</span><br><span class="line">  &quot;manifest_version&quot;: 3,</span><br><span class="line">  &quot;background&quot;: &#123;</span><br><span class="line">    &quot;service_worker&quot;: &quot;./js/background.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;content_scripts&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;matches&quot;: [</span><br><span class="line">        &quot;*://www.google.com/&quot;</span><br><span class="line">      ],</span><br><span class="line">      &quot;js&quot;: [</span><br><span class="line">        &quot;./js/content.js&quot;</span><br><span class="line">      ],</span><br><span class="line">      &quot;run_at&quot;: &quot;document_idle&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;permissions&quot;: [</span><br><span class="line">    &quot;tabs&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;action&quot;: &#123;</span><br><span class="line">    //套件的行為</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>name</strong> - 套件名稱</li>
-<li><strong>description</strong> - 套件的說明</li>
-<li><strong>version</strong> - 在擴充店上架時才會用到的，每次一次更新都需要變化數字來確認版本</li>
-<li><strong>manifest_version</strong> - 現在最新版本為V3</li>
-<li><strong>background</strong> - 躲在幕後，只做重要事情的頭頭</li>
-<li><strong>content_scripts</strong> - 頭頭的小弟，也是跟頁面的主要聯絡窗口</li>
-<li><strong>permissions</strong> - 要啟用的權限</li>
-</ul>
-<h2 id="資料參考"><a href="#資料參考" class="headerlink" title="資料參考"></a>資料參考</h2><p><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/content_scripts/#static-declarative">content_scripts : https://developer.chrome.com/docs/extensions/mv3/content_scripts&#x2F;#static-declarative</a></p>
-
-          
+          為了解決可憐同事的困擾，我學了怎麼開發 Google extension
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/02/16/0001/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -616,7 +552,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives/%7C%7Carchive">
               
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
@@ -681,21 +617,10 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Cooper Yen</span>
 
   
 </div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
