@@ -81,7 +81,7 @@
 
 <meta name="description" content="Google extension 運作關係，先來個簡易取得頁面內容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一個Google Extensions套件 - 頁面之間的溝通">
+<meta property="og:title" content="我的第一個Google Extensions套件 (中) - 頁面之間的溝通">
 <meta property="og:url" content="http://example.com/2022/02/17/0002/index.html">
 <meta property="og:site_name" content="C">
 <meta property="og:description" content="Google extension 運作關係，先來個簡易取得頁面內容">
@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://example.com/img/0002/bkackground_test_6.jpg">
 <meta property="og:image" content="http://example.com/img/0002/result.gif">
 <meta property="article:published_time" content="2022-02-17T02:22:19.000Z">
-<meta property="article:modified_time" content="2022-02-18T09:01:29.930Z">
+<meta property="article:modified_time" content="2022-02-22T08:40:12.535Z">
 <meta property="article:author" content="Cooper Yen">
 <meta property="article:tag" content="外掛、套件">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
 
 
 
-  <title>我的第一個Google Extensions套件 - 頁面之間的溝通 | C</title>
+  <title>我的第一個Google Extensions套件 (中) - 頁面之間的溝通 | C</title>
   
 
 
@@ -257,7 +257,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我的第一個Google Extensions套件 - 頁面之間的溝通</h1>
+          <h1 class="post-title" itemprop="name headline">我的第一個Google Extensions套件 (中) - 頁面之間的溝通</h1>
         
 
         <div class="post-meta">
@@ -352,12 +352,12 @@
 
 
 <h2 id="第三步：使用者頁面-popup-html"><a href="#第三步：使用者頁面-popup-html" class="headerlink" title="第三步：使用者頁面 popup.html"></a>第三步：使用者頁面 <code>popup.html</code></h2><p>我們先把使用者頁面內容製作起來</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-TW&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;popup頁面&lt;/title&gt;</span><br><span class="line">  &lt;script defer src=&quot;./js/popup.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;h1&gt;Popup 抬頭&lt;/h1&gt;</span><br><span class="line">    &lt;button id=&quot;click_btn&quot;&gt;Click&lt;/button&gt;</span><br><span class="line">    &lt;div class=&quot;info&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-TW&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>popup頁面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">&quot;./js/popup.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Popup 抬頭<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;click_btn&quot;</span>&gt;</span>Click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;info&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>刷新一下我們的套件看看有沒有成功</p>
 <p><img src="/img/0002/bkackground_test_3.jpg" title="1. 接著我們直接點刷新"><br><img src="/img/0002/bkackground_test_4.jpg" title="2. 點套件圖式"><br><img src="/img/0002/bkackground_test_5.jpg" title="3. 看到 Popup 抬頭 就代表我們成功開啟套件的內容頁面了"></p>
 <h2 id="第四步：抓目標頁面資訊-content-scripts"><a href="#第四步：抓目標頁面資訊-content-scripts" class="headerlink" title="第四步：抓目標頁面資訊 content_scripts"></a>第四步：抓目標頁面資訊 <code>content_scripts</code></h2><p>先回頭看先前設定的 manifest.json </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&quot;content_scripts&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;matches&quot;: [</span><br><span class="line">      &quot;*://www.google.com/&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;js&quot;: [</span><br><span class="line">      &quot;./js/content.js&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;run_at&quot;: &quot;document_idle&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;content_scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;matches&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;*://www.google.com/&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;js&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;./js/content.js&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;run_at&quot;</span><span class="punctuation">:</span> <span class="string">&quot;document_idle&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
 <ol>
 <li>matches : 符合的網址，可以替換任何想執行的網址</li>
 <li>js : 執行的js檔案，js名稱可以自行取</li>
@@ -371,10 +371,10 @@
 
 <ol>
 <li><p>在 <code>content_scripts</code> 中可以透過 chrome.runtime.sendMessage 發送資料，希望在網頁完整讀取後就傳送</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//content_scripts 內容</span><br><span class="line"></span><br><span class="line">window.onload = function () &#123;</span><br><span class="line">  //取得Google logo</span><br><span class="line">  const googleLogoUrl = document.querySelector(&#x27;.lnXdpd&#x27;).src;</span><br><span class="line"></span><br><span class="line">  chrome.runtime.sendMessage(&#123;</span><br><span class="line">    url: googleLogoUrl,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//content_scripts 內容</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//取得Google logo</span></span><br><span class="line">  <span class="keyword">const</span> googleLogoUrl = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.lnXdpd&#x27;</span>).<span class="property">src</span>;</span><br><span class="line"></span><br><span class="line">  chrome.<span class="property">runtime</span>.<span class="title function_">sendMessage</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: googleLogoUrl,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在 <code>popup.js</code> 中可以透過 chrome.runtime.onMessage.addListener 接收資料，當 content_scripts 所加載的分頁完畢後就會傳入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//popup.js 內容</span><br><span class="line"></span><br><span class="line">const infoContent = document.querySelector(&#x27;.info&#x27;);</span><br><span class="line"></span><br><span class="line">chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) &#123;</span><br><span class="line">  infoContent.insertAdjacentHTML(&#x27;beforebegin&#x27;, `&lt;img src=&quot;$&#123;request.url&#125;&quot;&gt;`);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//popup.js 內容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> infoContent = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.info&#x27;</span>);</span><br><span class="line"></span><br><span class="line">chrome.<span class="property">runtime</span>.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">request, sender, sendResponse</span>) &#123;</span><br><span class="line">  infoContent.<span class="title function_">insertAdjacentHTML</span>(<span class="string">&#x27;beforebegin&#x27;</span>, <span class="string">`&lt;img src=&quot;<span class="subst">$&#123;request.url&#125;</span>&quot;&gt;`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p><img src="/img/0002/result.gif" title="頁面加載後，使用者頁面出現LOGO代表我們成功取得分頁資料"></p>
 <h2 id="資料參考"><a href="#資料參考" class="headerlink" title="資料參考"></a>資料參考</h2><p><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/getstarted/">Getting started : https://developer.chrome.com/docs/extensions/mv3/getstarted/</a></p>
@@ -408,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/02/16/0001/" rel="next" title="我的第一個Google Extensions套件 - manifest安裝檔">
-                <i class="fa fa-chevron-left"></i> 我的第一個Google Extensions套件 - manifest安裝檔
+              <a href="/2022/02/16/0001/" rel="next" title="我的第一個Google Extensions套件 (上) - manifest安裝檔">
+                <i class="fa fa-chevron-left"></i> 我的第一個Google Extensions套件 (上) - manifest安裝檔
               </a>
             
           </div>
@@ -417,6 +417,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/02/22/0003/" rel="prev" title="我的第一個Google Extensions套件 (下) - 正式啟程">
+                我的第一個Google Extensions套件 (下) - 正式啟程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -493,7 +497,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
